@@ -3,13 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Confirmación de Asistencia</title>
+    <title>Confirmación de Asistencia | Samuel & Paula</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <!-- Librería ligera de confeti para la confirmación -->
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <script src="script.js" defer></script>
 </head>
 <body>
@@ -20,42 +18,42 @@
             <!-- TAPA SUPERIOR (ABRE HACIA ARRIBA) -->
             <div class="card-flap" id="cardFlap">
                 
-                <!-- PORTADA: SOLO LOGO Y GUÍA VISUAL -->
+                <!-- PORTADA: LOGO GRANDE -->
                 <div class="flap-face flap-front">
                     <img src="logo.png" alt="Logo de la boda" class="logo-cover">
-                    
-                    <!-- Pista interactiva para que sepan qué hacer -->
-                    <div class="interactive-hint" id="hint">
-                        <span class="hint-icon">👆</span>
-                        <span class="hint-text">Toca para abrir</span>
-                    </div>
                 </div>
 
-                <!-- INTERIOR SUPERIOR: MENSAJE -->
+                <!-- INTERIOR SUPERIOR: MENSAJE BONITO, LUGAR Y FECHA -->
                 <div class="flap-face flap-back">
                     <div class="inside-top-content">
-                        <h2 class="quote-title">¡Nos Casamos!</h2>
-                        <div class="gold-line"></div>
-                        <p class="quote-text">
-                            Queremos compartir este día tan especial contigo.<br>
-                            Tu presencia es nuestro mejor regalo.
+                        <p class="intro-phrase">
+                            Nos gustaría celebrar uno de nuestros días más importantes juntos
                         </p>
+                        <div class="gold-line"></div>
+                        <h2 class="venue-name">Masia La Tartana</h2>
+                        <p class="event-date">15 · MAYO · 2027</p>
+                        <p class="save-the-date">¡Resérvate este día para celebrarlo!</p>
                     </div>
                 </div>
 
             </div>
 
-            <!-- BASE INFERIOR: ENLACE AL FORMS -->
+            <!-- BASE INFERIOR: CONFIRMACIÓN Y BOTÓN VERDE OLIVA -->
             <div class="card-base">
                 <div class="inside-bottom-content">
                     <h3 class="forms-title">CONFIRMACIÓN</h3>
-                    <p class="forms-sub">Por favor, rellena el formulario antes del <strong>15 de marzo</strong>:</p>
+                    <div class="gold-line"></div>
+                    <p class="forms-sub">
+                        Agradecemos que nos confirmes tu asistencia y rellenes el formulario
+                    </p>
                     
                     <a href="https://forms.google.com" target="_blank" rel="noopener noreferrer" class="btn-forms" id="formsBtn">
                         CONFIRMAR ASISTENCIA
                     </a>
 
-                    <span class="tap-to-close">Toca fuera o en la tarjeta para cerrar</span>
+                    <p class="later-note">
+                        ¡Más adelante recibirás la invitación con todos los detalles!
+                    </p>
                 </div>
             </div>
 
