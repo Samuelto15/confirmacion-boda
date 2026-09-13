@@ -7,65 +7,60 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Librería ligera de confeti para la confirmación -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
 
     <main class="scene">
         <div class="card-container" id="weddingCard">
 
-            <!-- TAPA QUE SE ABRE HACIA ARRIBA -->
-            <div class="card-flap">
+            <!-- TAPA SUPERIOR (ABRE HACIA ARRIBA) -->
+            <div class="card-flap" id="cardFlap">
                 
-                <!-- PORTADA: SOLO EL LOGO GRANDE Y CENTRADO -->
+                <!-- PORTADA: SOLO LOGO Y GUÍA VISUAL -->
                 <div class="flap-face flap-front">
-                    <img src="logo.png" alt="Logo" class="logo-cover">
+                    <img src="logo.png" alt="Logo de la boda" class="logo-cover">
+                    
+                    <!-- Pista interactiva para que sepan qué hacer -->
+                    <div class="interactive-hint" id="hint">
+                        <span class="hint-icon">👆</span>
+                        <span class="hint-text">Toca para abrir</span>
+                    </div>
                 </div>
 
-                <!-- INTERIOR SUPERIOR: TEXTO QUE ME DIGAS -->
+                <!-- INTERIOR SUPERIOR: MENSAJE -->
                 <div class="flap-face flap-back">
                     <div class="inside-top-content">
-                        <!-- Aquí pondremos el texto que me digas -->
                         <h2 class="quote-title">¡Nos Casamos!</h2>
+                        <div class="gold-line"></div>
                         <p class="quote-text">
-                            Aquí irá el texto que tú me digas.<br>
-                            Lo he dejado preparado con tipografía elegante para cuando lo tengamos.
+                            Queremos compartir este día tan especial contigo.<br>
+                            Tu presencia es nuestro mejor regalo.
                         </p>
                     </div>
                 </div>
 
             </div>
 
-            <!-- INTERIOR INFERIOR: BASE CON EL ENLACE AL FORMS -->
+            <!-- BASE INFERIOR: ENLACE AL FORMS -->
             <div class="card-base">
                 <div class="inside-bottom-content">
                     <h3 class="forms-title">CONFIRMACIÓN</h3>
-                    <p class="forms-sub">Por favor, confirma tu asistencia en el siguiente formulario:</p>
+                    <p class="forms-sub">Por favor, rellena el formulario antes del <strong>15 de marzo</strong>:</p>
                     
-                    <!-- ENLACE A GOOGLE FORMS -->
                     <a href="https://forms.google.com" target="_blank" rel="noopener noreferrer" class="btn-forms" id="formsBtn">
                         CONFIRMAR ASISTENCIA
                     </a>
+
+                    <span class="tap-to-close">Toca fuera o en la tarjeta para cerrar</span>
                 </div>
             </div>
 
         </div>
     </main>
 
-    <!-- SCRIPT DIRECTO DENTRO DEL HTML (SIN NECESIDAD DE OTRO ARCHIVO) -->
-    <script>
-        const card = document.getElementById('weddingCard');
-        const formsBtn = document.getElementById('formsBtn');
-
-        // Abre y cierra la tarjeta al tocarla
-        card.addEventListener('click', () => {
-            card.classList.toggle('open');
-        });
-
-        // Evita que pulsar el botón cierre la tarjeta en vez de abrir el link
-        formsBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-        });
-    </script>
 </body>
 </html>
