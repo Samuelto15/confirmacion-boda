@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Confirmación de Asistencia | Samuel & Paula</title>
+    <title>Confirmación de Asistencia</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,60 +11,61 @@
 </head>
 <body>
 
-    <main class="rsvp-scene">
-        <div class="rsvp-card" id="rsvpCard">
+    <main class="scene">
+        <div class="card-container" id="weddingCard">
 
-            <!-- TAPA SUPERIOR (SE ABRE HACIA ARRIBA) -->
-            <div class="card-flap" id="cardFlap">
-                <!-- Portada (Exterior) -->
+            <!-- TAPA QUE SE ABRE HACIA ARRIBA -->
+            <div class="card-flap">
+                
+                <!-- PORTADA: SOLO EL LOGO GRANDE Y CENTRADO -->
                 <div class="flap-face flap-front">
-                    <div class="cover-content">
-                        <!-- Sustituye por tu logo si lo tienes en imagen -->
-                        <div class="logo-box">
-                            <img src="assets/logo.png" alt="Logo Samuel & Paula" class="cover-logo" onerror="this.style.display='none'">
-                            <h2 class="monogram-text">S & P</h2>
-                        </div>
-                        <p class="cover-sub">CONFIRMACIÓN DE ASISTENCIA</p>
-                        <div class="tap-hint">
-                            <span>Toca para abrir</span>
-                            <div class="arrow-up">▲</div>
-                        </div>
+                    <img src="logo.png" alt="Logo" class="logo-cover">
+                </div>
+
+                <!-- INTERIOR SUPERIOR: TEXTO QUE ME DIGAS -->
+                <div class="flap-face flap-back">
+                    <div class="inside-top-content">
+                        <!-- Aquí pondremos el texto que me digas -->
+                        <h2 class="quote-title">¡Nos Casamos!</h2>
+                        <p class="quote-text">
+                            Aquí irá el texto que tú me digas.<br>
+                            Lo he dejado preparado con tipografía elegante para cuando lo tengamos.
+                        </p>
                     </div>
                 </div>
 
-                <!-- Reverso de la tapa (Visible cuando se abre arriba) -->
-                <div class="flap-face flap-back">
-                    <div class="flap-back-content">
-                        <p class="quote">“Prepara tus mejores galas y tus ganas de fiesta.”</p>
-                        <span class="wedding-date">15 · 05 · 2027</span>
-                    </div>
-                </div>
             </div>
 
-            <!-- INTERIOR FIJO (BASE DE LA TARJETA) -->
+            <!-- INTERIOR INFERIOR: BASE CON EL ENLACE AL FORMS -->
             <div class="card-base">
-                <div class="base-content">
-                    <h1 class="base-title">¿NOS ACOMPAÑAS?</h1>
-                    <div class="gold-divider"></div>
+                <div class="inside-bottom-content">
+                    <h3 class="forms-title">CONFIRMACIÓN</h3>
+                    <p class="forms-sub">Por favor, confirma tu asistencia en el siguiente formulario:</p>
                     
-                    <p class="base-text">
-                        Nos hace muchísima ilusión compartir este día contigo. 
-                        Por favor, confírmanos tu asistencia antes del 
-                        <strong>15 de marzo de 2027</strong> rellenando el siguiente formulario.
-                    </p>
-
-                    <!-- REEMPLAZA EL ENLACE CON TU GOOGLE FORMS -->
-                    <a href="https://forms.google.com" target="_blank" rel="noopener noreferrer" class="btn-forms">
+                    <!-- ENLACE A GOOGLE FORMS -->
+                    <a href="https://forms.google.com" target="_blank" rel="noopener noreferrer" class="btn-forms" id="formsBtn">
                         CONFIRMAR ASISTENCIA
                     </a>
-
-                    <p class="extra-note">Indícanos intolerancias o necesidades de menú en el enlace.</p>
                 </div>
             </div>
 
         </div>
     </main>
 
-    <script src="script.js"></script>
+    <!-- SCRIPT DIRECTO DENTRO DEL HTML (SIN NECESIDAD DE OTRO ARCHIVO) -->
+    <script>
+        const card = document.getElementById('weddingCard');
+        const formsBtn = document.getElementById('formsBtn');
+
+        // Abre y cierra la tarjeta al tocarla
+        card.addEventListener('click', () => {
+            card.classList.toggle('open');
+        });
+
+        // Evita que pulsar el botón cierre la tarjeta en vez de abrir el link
+        formsBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+    </script>
 </body>
 </html>
