@@ -6,7 +6,7 @@
 
 body {
     min-height: 100vh;
-    background-color: #f3efe9;
+    background-color: #556344; /* Verde oliva del botón */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,19 +26,18 @@ body {
 
 .card-container {
     position: relative;
-    width: min(92vw, 360px);
+    width: min(90vw, 350px);
     height: 270px;
     cursor: pointer;
     user-select: none;
     transition: transform 3s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* Baja la tarjeta para dar espacio a la mitad superior abierta */
 .card-container.open {
     transform: translateY(135px);
 }
 
-/* ================= BASE INFERIOR (MITAD DE ABAJO) ================= */
+/* BASE INFERIOR */
 .card-base {
     position: absolute;
     inset: 0;
@@ -48,73 +47,81 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 24px 22px;
+    padding: 26px 24px;
     text-align: center;
     z-index: 1;
 }
 
-/* Al abrirse: une el pliegue central eliminando bordes redondeados y marcando la línea */
 .card-container.open .card-base {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
-    border-top: 1px solid #e0d7c7;
-    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.1), inset 0 3px 6px -3px rgba(0, 0, 0, 0.1);
+    border-top: 1px solid #e2dac9;
+    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.09), inset 0 4px 8px -4px rgba(0, 0, 0, 0.08);
 }
 
 .inside-bottom-content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
+}
+
+.gold-line {
+    width: 32px;
+    height: 1.5px;
+    background: #d4af37;
+    margin-bottom: 2px;
 }
 
 .forms-title {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.65rem;
-    letter-spacing: 2px;
+    font-size: 1.55rem;
+    letter-spacing: 3px;
     color: #a38222;
+    font-weight: 600;
 }
 
 .forms-sub {
-    font-size: 0.85rem;
+    font-style: italic;
+    font-size: 0.70rem;
     line-height: 1.45;
     color: #4a4a4a;
     max-width: 290px;
 }
 
-/* Botón Verde Oliva */
+/* Botón estilo papelería elegante */
 .btn-forms {
-    margin-top: 4px;
+    margin-top: 6px;
     display: inline-block;
-    padding: 12px 28px;
-    background-color: #5c6b47;
+    padding: 11px 26px;
+    background-color: #556344;
     color: #ffffff;
     text-decoration: none;
-    font-size: 0.78rem;
+    font-size: 0.72rem;
     font-weight: 500;
-    letter-spacing: 1.8px;
-    border-radius: 4px;
-    border: 1px solid #4a5738;
-    box-shadow: 0 4px 14px rgba(92, 107, 71, 0.28);
+    letter-spacing: 2px;
+    border-radius: 30px; /* Estilo píldora suave */
+    border: 1px solid #475437;
+    box-shadow: 0 4px 12px rgba(85, 99, 68, 0.25);
     transition: all 0.2s ease;
 }
 
 .btn-forms:active {
     transform: scale(0.97);
-    background-color: #4e5b3c;
-    box-shadow: 0 2px 6px rgba(92, 107, 71, 0.3);
+    background-color: #445035;
 }
 
 .later-note {
-    font-size: 0.72rem;
-    line-height: 1.35;
-    color: #777777;
     font-style: italic;
-    max-width: 270px;
-    margin-top: 2px;
+    font-size: 0.50rem;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    color: #888888;
+    max-width: 260px;
+    margin-top: 4px;
 }
 
-/* ================= TAPA SUPERIOR ================= */
+/* TAPA SUPERIOR */
 .card-flap {
     position: absolute;
     inset: 0;
@@ -134,17 +141,14 @@ body {
     backface-visibility: hidden;
 }
 
-/* Portada cerrada */
 .flap-front {
-    background: #fdfbf7; /* Cambiado de #ffffff a #fdfbf7 */
+    background: #fdfbf7;
     border-radius: 8px;
     box-shadow: 0 16px 34px rgba(0, 0, 0, 0.12), inset 0 0 0 1px #e6decb;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 24px;
-    position: relative;
 }
 
 .logo-cover {
@@ -154,24 +158,6 @@ body {
     pointer-events: none;
 }
 
-.interactive-hint {
-    position: absolute;
-    bottom: 14px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 0.72rem;
-    letter-spacing: 1.2px;
-    color: #9a8f7e;
-    animation: bounce 1.8s infinite ease-in-out;
-}
-
-.hint-icon {
-    font-size: 0.75rem;
-    color: #d4af37;
-}
-
-/* Interior superior abierto: se une al pliegue */
 .flap-back {
     background: #fdfbf7;
     border-top-left-radius: 8px;
@@ -185,7 +171,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 24px 22px;
+    padding: 26px 22px;
     text-align: center;
 }
 
@@ -193,49 +179,42 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 6px;
+    gap: 12px;
 }
 
 .intro-phrase {
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
-    font-size: 1.15rem;
+    font-size: 1.18rem;
     line-height: 1.35;
     color: #333333;
-    max-width: 290px;
+    max-width: 280px;
 }
 
-.gold-line {
-    width: 42px;
-    height: 1.5px;
-    background: #d4af37;
-    margin: 4px 0 6px;
+.venue-block {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
 }
 
 .venue-name {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.45rem;
+    font-size: 1.35rem;
     color: #222222;
     font-weight: 600;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
 }
 
 .event-date {
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     letter-spacing: 3px;
     color: #a38222;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .save-the-date {
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
-    font-size: 1.05rem;
-    color: #555555;
-    margin-top: 2px;
-}
-
-@keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-5px); }
+    font-size: 0.98rem;
+    color: #666666;
 }
