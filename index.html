@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmación de Asistencia | Samuel & Paula</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <main class="rsvp-scene">
+        <div class="rsvp-card" id="rsvpCard">
+
+            <!-- TAPA SUPERIOR (SE ABRE HACIA ARRIBA) -->
+            <div class="card-flap" id="cardFlap">
+                <!-- Portada (Exterior) -->
+                <div class="flap-face flap-front">
+                    <div class="cover-content">
+                        <!-- Sustituye por tu logo si lo tienes en imagen -->
+                        <div class="logo-box">
+                            <img src="assets/logo.png" alt="Logo Samuel & Paula" class="cover-logo" onerror="this.style.display='none'">
+                            <h2 class="monogram-text">S & P</h2>
+                        </div>
+                        <p class="cover-sub">CONFIRMACIÓN DE ASISTENCIA</p>
+                        <div class="tap-hint">
+                            <span>Toca para abrir</span>
+                            <div class="arrow-up">▲</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reverso de la tapa (Visible cuando se abre arriba) -->
+                <div class="flap-face flap-back">
+                    <div class="flap-back-content">
+                        <p class="quote">“Prepara tus mejores galas y tus ganas de fiesta.”</p>
+                        <span class="wedding-date">15 · 05 · 2027</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- INTERIOR FIJO (BASE DE LA TARJETA) -->
+            <div class="card-base">
+                <div class="base-content">
+                    <h1 class="base-title">¿NOS ACOMPAÑAS?</h1>
+                    <div class="gold-divider"></div>
+                    
+                    <p class="base-text">
+                        Nos hace muchísima ilusión compartir este día contigo. 
+                        Por favor, confírmanos tu asistencia antes del 
+                        <strong>15 de marzo de 2027</strong> rellenando el siguiente formulario.
+                    </p>
+
+                    <!-- REEMPLAZA EL ENLACE CON TU GOOGLE FORMS -->
+                    <a href="https://forms.google.com" target="_blank" rel="noopener noreferrer" class="btn-forms">
+                        CONFIRMAR ASISTENCIA
+                    </a>
+
+                    <p class="extra-note">Indícanos intolerancias o necesidades de menú en el enlace.</p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

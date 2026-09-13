@@ -1,0 +1,227 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    background-color: #e9e5dc;
+    background-image: radial-gradient(#d6cec0 1px, transparent 1px);
+    background-size: 24px 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+    color: #2c2c2c;
+    padding: 20px;
+    overflow-x: hidden;
+}
+
+/* Escenario de perspectiva 3D */
+.rsvp-scene {
+    width: 100%;
+    max-width: 360px;
+    height: 480px;
+    perspective: 1400px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* La tapa se despliega hacia el espacio superior */
+    padding-bottom: 20px;
+}
+
+/* Contenedor de la tarjeta */
+.rsvp-card {
+    position: relative;
+    width: 100%;
+    height: 250px; /* Altura de la tarjeta cerrada */
+    cursor: pointer;
+    user-select: none;
+}
+
+/* ================= PARTE INFERIOR (BASE INTERIOR) ================= */
+.card-base {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fdfbf7;
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12), inset 0 0 0 1px #ece5d8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+    text-align: center;
+    z-index: 1;
+}
+
+.base-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.base-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+    color: #222;
+}
+
+.gold-divider {
+    width: 45px;
+    height: 1.5px;
+    background: #d4af37;
+    margin: 8px 0 14px 0;
+}
+
+.base-text {
+    font-size: 0.82rem;
+    line-height: 1.55;
+    color: #444;
+    margin-bottom: 18px;
+}
+
+.btn-forms {
+    display: inline-block;
+    padding: 10px 22px;
+    background: #2c2c2c;
+    color: #fdfbf7;
+    text-decoration: none;
+    font-size: 0.75rem;
+    letter-spacing: 1.5px;
+    border-radius: 2px;
+    border: 1px solid #d4af37;
+    transition: all 0.25s ease;
+    cursor: pointer;
+}
+
+.btn-forms:hover {
+    background: #d4af37;
+    color: #2c2c2c;
+}
+
+.extra-note {
+    margin-top: 10px;
+    font-size: 0.65rem;
+    color: #888;
+}
+
+/* ================= TAPA BASCULANTE (ABRE HACIA ARRIBA) ================= */
+.card-flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-origin: top center;
+    transform-style: preserve-3d;
+    transition: transform 0.85s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 5;
+}
+
+/* Animación de apertura */
+.rsvp-card.open .card-flap {
+    transform: rotateX(172deg);
+}
+
+.flap-face {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 4px;
+}
+
+/* Cara Frontal (Portada cerrada) */
+.flap-front {
+    background: #fcfbf7;
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15), inset 0 0 0 1px #e6decb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+    text-align: center;
+}
+
+.cover-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cover-logo {
+    max-width: 70px;
+    height: auto;
+    margin-bottom: 6px;
+}
+
+.monogram-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    letter-spacing: 3px;
+    color: #2c2c2c;
+}
+
+.cover-sub {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    color: #a38222;
+    margin-top: 8px;
+    font-weight: 500;
+}
+
+.tap-hint {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.65rem;
+    letter-spacing: 1px;
+    color: #8f8f8f;
+    animation: hintFloat 2s ease-in-out infinite;
+}
+
+.arrow-up {
+    font-size: 0.55rem;
+    color: #d4af37;
+}
+
+/* Cara Posterior (Interior de la tapa visible al abrirse) */
+.flap-back {
+    background: #f7f4ec;
+    box-shadow: 0 -4px 15px rgba(0,0,0,0.06), inset 0 0 0 1px #e4dac5;
+    transform: rotateY(180deg) rotateZ(180deg); /* Compensa para quedar al derecho al subir */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+    text-align: center;
+}
+
+.flap-back-content .quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1rem;
+    line-height: 1.4;
+    color: #555;
+}
+
+.wedding-date {
+    display: block;
+    margin-top: 14px;
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    color: #d4af37;
+    font-weight: 500;
+}
+
+@keyframes hintFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+}
